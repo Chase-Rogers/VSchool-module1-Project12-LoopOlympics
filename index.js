@@ -1,63 +1,60 @@
 // Preliminaries!!!!!!
-const printNumber = e => {
-    for (let i = 0; i <= 9; i++) {
+const printNumber = num => {
+    for (let i = 0; i <= num; i++) {
         console.log(i);
     }
 }
-
+console.log("Write a for loop that prints to the console the numbers 0 through 9.")
 printNumber(9);
 
-const printNumberBackwards = e => {
-    for (let i = e; i >= 0; i--) {
+const printNumberBackwards = num => {
+    for (let i = num; i >= 0; i--) {
         console.log(i);
     }
 }
-
+console.log("Write a for loop that prints to the console 9 through 0.")
 printNumberBackwards(9);
 
-let fruit = ["banana", "orange", "apple", "kiwi"];
+const fruit = ["banana", "orange", "apple", "kiwi"];
 
-const printArray = e => {
-    for (let i = 0; i < e.length; i++) {
-        console.log(fruit[i]);
+const printArray = arr => {
+    for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
     }
 }
-
+console.log('Write a for loop that prints these fruits to the console. var fruit = ["banana", "orange", "apple", "kiwi"]')
 printArray(fruit);
 
 // Going for Bronze!!!!!
-const zeroToNine = [];
-
-const pushToArray = e => {
-    for (let i = 0; i <= e; i++) {
-        zeroToNine.push(i);
+const pushToArray = (num, arr) => {
+    for (let i = 0; i <= num; i++) {
+        arr.push(i);
     }
+    console.log(arr)
 }
+console.log("Write a for loop that will push the numbers 0 through 9 to an array.")
+pushToArray(9, []);
 
-pushToArray(9);
-console.log(zeroToNine);
-
-const printEven = e => {
-    for (let i = 0; i <= e; i++) {
+const printEven = num => {
+    for (let i = 0; i <= num; i++) {
         if (i % 2 === 0) {
             console.log(i);
         }
     }
 }
-
+console.log("Write a for loop that prints to the console only even numbers 0 through 100.")
 printEven(100);
 
 const fruits = ["banana", "orange", "apple", "kiwi", "pear", "peach"];
-let newFruit = [];
 
-const pushFruit = e => {
-    for (let i = 0; i < fruits.length; i = i + 2) {
-        newFruit.push(e[i])
+const pushFruit = (arr, newArray) => {
+    for (let i = 0; i < arr.length; i += 2) {
+        newArray.push(arr[i])
     }
+    console.log(newArray);
 }
-
-pushFruit(fruits);
-console.log(newFruit);
+console.log('Write a for loop that will push every other fruit to an array. var fruit = ["banana", "orange", "apple", "kiwi", "pear", "peach"]')
+pushFruit(fruits, []);
 
 // Going for Silver!!!!!
 var peopleArray = [
@@ -79,97 +76,90 @@ var peopleArray = [
     }
 ]
 
-const printNames = e => {
-    for (let i = 0; i < e.length; i++) {
-        console.log(e[i].name);
+const printNames = arrayOfObjects => {
+    for (let i = 0; i < arrayOfObjects.length; i++) {
+        console.log(arrayOfObjects[i].name);
     }
-
 }
-
+console.log("Write a loop that will print out all the names of the people of the people array.")
 printNames(peopleArray);
 
-namesArray = [];
-occupationsArray = [];
-
-const pushJobsAndNames = e => {
-    for (let i = 0; i < e.length; i++) {
-        namesArray.push(e[i].name);
-        occupationsArray.push(e[i].occupation);
+const pushJobsAndNames = (arr, arrayOfNames, arrayOfJobs) => {
+    for (let i = 0; i < arr.length; i++) {
+        arrayOfNames.push(arr[i].name);
+        arrayOfJobs.push(arr[i].occupation);
     }
+    console.log(arrayOfNames);
+    console.log(arrayOfJobs);
 }
+console.log("Write a loop that pushes the names into a names array, and the occupations into an occupations array.")
+pushJobsAndNames(peopleArray, [], []);
 
-pushJobsAndNames(peopleArray);
-console.log(namesArray);
-console.log(occupationsArray);
-
-namesArray2 = [];
-occupationsArray2 = [];
-
-const pushJobsAndNames2 = e => {
-    for (let i = 0; i < e.length; i = i + 2) {
-        namesArray2.push(e[i].name);
-        occupationsArray2.push(e[i].occupation);
+const pushJobsAndNames2 = (arr, arrayOfNames, arrayOfJobs) => {
+    for (let i = 0; i < arr.length; i++) {
+        if  (i%2 === 0) {
+            arrayOfNames.push(arr[i].name);
+        } else {
+            arrayOfJobs.push(arr[i].occupation);
+        }   
     }
+    console.log(arrayOfNames);
+    console.log(arrayOfJobs);
 }
-
-pushJobsAndNames2(peopleArray);
-console.log(namesArray2);
-console.log(occupationsArray2);
+console.log('Write a loop that pushes every other name to an array starting with the first person, in this case "Harrison Ford", and every other occupation to another array starting with, in this case, "Singer".')
+pushJobsAndNames2(peopleArray, [], []);
 
 // Going for Gold!!!!!!
-const nestedArray = [];
-const nestedArray2 = [];
-const nestedArray3 = [];
-const arrayOfXes = [];
-
-const makeNestedArray = (e, Array) => {
-    for (let i = 0; i < e; i++) {
-        const arrayForNesting = []
-        for (let j = 0; j < e; j++) {
-            arrayForNesting.push(0)
+const makeNestedArray1 = (numOfElements, numOfArrays, matrix) => {
+    for (let i = 0; i < numOfArrays; i++) {
+        const arrayForNesting = [];
+        for (let j = 0; j < numOfElements; j++) {
+            arrayForNesting.push(0);
         }
-        Array.push(arrayForNesting);
+        matrix.push(arrayForNesting);
     }
+    console.log(matrix);
+    return matrix;
 }
+console.log('Create an array that mimics a grid like the following using nested for loops:[[0, 0, 0], [0, 0, 0], [0, 0, 0]]')
+makeNestedArray1(3, 3, []);
 
-makeNestedArray(3, nestedArray);
-console.log(nestedArray);
-      
-const makeNestedArray2 = (e, Array) => {
-    for (let i = 0; i < e; i++) {
-        const arrayForNesting2 = []
-        for (let j = 0; j < e; j++) {
-            arrayForNesting2.push(i)
+const makeNestedArray2 = (numOfElements, numOfArrays, matrix) => {
+    for (let i = 0; i < numOfArrays; i++) {
+        const arrayForNesting = [];
+        for (let j = 0; j < numOfElements; j++) {
+            arrayForNesting.push(i);
         }
-        Array.push(arrayForNesting2);
+        matrix.push(arrayForNesting);
     }
+    console.log(matrix);
+    return matrix;
 }
+console.log('Create an array that mimics a grid like the following using nested for loops:[[0, 0, 0], [1, 1, 1], [2, 2, 2]]')
+makeNestedArray2(3, 3, []);
 
-makeNestedArray2(3, nestedArray2);
-console.log(nestedArray2)
-
-const makeNestedArray3 = (e, Array) => {
-    for (let i = 0; i < e; i++) {
-        const arrayForNesting3 = []
-        for (let j = 0; j < e; j++) {
-            arrayForNesting3.push(j)
+const makeNestedArray3 = (numOfElements, numOfArrays, matrix) => {
+    for (let i = 0; i < numOfArrays; i++) {
+        const arrayForNesting = [];
+        for (let j = 0; j < numOfElements; j++) {
+            arrayForNesting.push(j);
         }
-        Array.push(arrayForNesting3);
+        matrix.push(arrayForNesting);
     }
+    console.log(matrix);
+    return matrix;
 }
+console.log('Create an array that mimics a grid like the following using nested for loops:[[0, 1, 2], [0, 1, 2], [0, 1, 2]]')
+makeNestedArray3(3, 3, []);
 
-makeNestedArray3(3, nestedArray3);
-console.log(nestedArray3);
-
-makeNestedArray3(3, arrayOfXes);
-
-const makeNestedArrayAllX = (e, Array) => {
-    for (let i = 0; i < e; i++) {
-        for (let j = 0; j < e; j++) {
-            Array[i][j] = "x";
+const makeNestedArrayAllX = (num, arr) => {
+    for (let i = 0; i < num; i++) {
+        for (let j = 0; j < num; j++) {
+            arr[i][j] = "x";
         }
     }
 }
-
-makeNestedArrayAllX(3, arrayOfXes);
-console.log(arrayOfXes);
+console.log('Given a grid like the previous ones, write a nested for loop that would change every number to an x.')
+makeNestedArrayAllX(3, makeNestedArray1(3, 3, []));
+makeNestedArrayAllX(3, makeNestedArray2(3, 3, []));
+makeNestedArrayAllX(3, makeNestedArray3(3, 3, []));
